@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mahir Thapar — Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">MAHIR THAPAR</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">About</a></li>
+        <li><a href="projects.html" class="nav-link">Projects</a></li>
+        <li><a href="experience.html" class="nav-link">Experience</a></li>
+        <li><a href="education.html" class="nav-link">Education</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="contact-section">
+      <div class="contact-box" style="text-align: center;">
+        <h3 class="section-head" style="border: none;">Need to get in touch?</h3>
+        <p style="margin-bottom: 20px;">I'm always open to discussing new projects, code, or hackathon ideas.</p>
+        
+        <div id="error-message"></div>
+        
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <label for="email-input">Your Email</label>
+            <input type="text" id="email-input" placeholder="student@college.edu">
+          </div>
+          <div class="form-group">
+            <label for="msg-input">Message</label>
+            <textarea id="msg-input" rows="4" placeholder="Hey Mahir, let's connect!"></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+      
+      let emailValue = document.getElementById("email-input").value;
+      let errorDiv = document.getElementById("error-message");
+      
+      if (emailValue === "" || !emailValue.includes("@")) {
+        errorDiv.style.display = "block";
+        errorDiv.style.color = "#d9534f"; 
+        errorDiv.innerText = "Error: Please enter a valid email address with an '@'.";
+      } else {
+        errorDiv.style.display = "block";
+        errorDiv.style.color = "green";
+        errorDiv.innerText = "Message validated and sent successfully!";
+        document.getElementById("email-input").value = "";
+        document.getElementById("msg-input").value = "";
+      }
+    });
+  </script>
+</body>
+</html>
